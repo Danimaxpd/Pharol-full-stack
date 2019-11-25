@@ -3,18 +3,19 @@ version: '3.7'
 networks:
   back_end:
     external: true
+    driver: bridge
 
 services:
   db:
     container_name: ${DB_HOST}
-    image: mongo:3.6
+    image: bitnami/mongodb:3.6
     ports:
       - ${MONGO_PORT}:${MONGO_PORT}
-    command: mongod --port 27017
     environment:
-      - MONGO_INITDB_DATABASE=${DB_NAME}
-      - MONGO_INITDB_ROOT_USERNAME=${USERNAME}
-      - MONGO_INITDB_ROOT_PASSWORD=${PASSWORD}
+      - MONGODB_PORT_NUMBER=${MONGO_PORT}
+      - MONGODB_DATABASE=${DB_NAME}
+      - MONGODB_USERNAME=${USERNAME}
+      - MONGODB_PASSWORD=${PASSWORD}
     networks: 
       - back_end
   
