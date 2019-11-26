@@ -1,6 +1,5 @@
 import * as dotenv from 'dotenv';
 import { createConnection } from 'typeorm';
-import * as MongoConnectionStringParser from 'mongo-connection-string';
 
 dotenv.config();
 

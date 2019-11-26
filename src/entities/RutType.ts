@@ -1,8 +1,7 @@
-import { Column, Entity, OneToMany } from 'typeorm';
-import { User } from './User';
+import { Column, Entity } from 'typeorm';
 
-@Entity('rut_type')
-export class rutType {
+@Entity()
+export class RutType {
   @Column('integer', {
     nullable: false,
     primary: true,
@@ -27,7 +26,4 @@ export class rutType {
     name: 'active',
   })
   active: boolean;
-
-  @OneToMany(() => User,(User: User) => User.rutTypes)
-  User: User[];
 }

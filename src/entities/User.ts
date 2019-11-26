@@ -1,13 +1,14 @@
-import { Column, Entity, ManyToOne, JoinColumn, OneToMany } from 'typeorm';
-import { rutType } from './rutType';
+import { Column, Entity } from 'typeorm';
+import { RutType } from './RutType';
 
-@Entity('user')
+@Entity()
 export class User {
   @Column('integer', {
     nullable: false,
     primary: true,
     name: 'id',
   })
+  id: number;
 
   @Column('string', {
     nullable: false,
@@ -59,7 +60,6 @@ export class User {
   })
   createdAt: Date;
 
-  @ManyToOne(() => rutType, (rutType: rutType) => rutType.User, {nullable: false,})
-  @JoinColumn({name: 'rut_type_id'})
-  rutTypes: rutType;
+  @Column(type => RutType)
+  rutType: RutType;
 }
