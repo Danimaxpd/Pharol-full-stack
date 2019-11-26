@@ -1,29 +1,16 @@
-import { Column, Entity } from 'typeorm';
+import { Column, ObjectID, ObjectIdColumn, Entity } from 'typeorm';
 
 @Entity()
 export class RutType {
-  @Column('integer', {
-    nullable: false,
-    primary: true,
-    name: 'id',
-  })
-  id: number;
+  @ObjectIdColumn()
+  id: ObjectID;
 
-  @Column('text', {
-    nullable: false,
-    name: 'name',
-  })
+  @Column()
   name: string;
 
-  @Column('text', {
-    nullable: false,
-    name: 'label',
-  })
+  @Column()
   label: string;
 
-  @Column('boolean', {
-    nullable: false,
-    name: 'active',
-  })
+  @Column()
   active: boolean;
 }

@@ -4,8 +4,8 @@ import { Module } from '@nestjs/common';
 import { AppService } from './services/app.service';
 import { AppController } from './controllers/app.controller';
 import { UserModule } from './modules/user.module';
-import { UserService } from './services/user.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
+
 dotenv.config();
 
 const mdPort = parseInt(process.env.MONGO_PORT.toString(), 0);

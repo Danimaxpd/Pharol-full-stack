@@ -10,5 +10,5 @@ import { UserService } from '../../services/user.service';
 })
 @Controller('users')
 export class UserController {
-  constructor(public userService: UserService) {}
+  constructor(public service: UserService) {}
 }

@@ -31,7 +31,7 @@
     "class-validator": "^0.11.0",
     "dotenv": "^8.2.0",
     "mongo-connection-string": "^0.1.4",
-    "mongodb": "^3.3.4",
+    "mongodb": "^3.3.5",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.0",
     "rxjs": "^6.5.3",
