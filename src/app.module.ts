@@ -3,8 +3,6 @@ import * as dotenv from 'dotenv';
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 
-import { AppService } from './services/app.service';
-import { AppController } from './controllers/app.controller';
 import { UserModule } from './modules/user.module';
 
 dotenv.config();
@@ -18,7 +16,7 @@ const mdHost = process.env.MONGO_HOST;
 
 @Module({
   imports: [MongooseModule.forRoot(`mongodb://${mdUser}:${mdPass}@${mdHost}:${mdPort}/${mdDB}`), UserModule],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}

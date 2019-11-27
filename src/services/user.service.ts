@@ -1,4 +1,3 @@
-
 import { Injectable, Inject } from '@nestjs/common';
 
 import { Model } from 'mongoose';
@@ -12,11 +11,12 @@ export class UserService {
 
   async create(createUserDto: CreateUserDto): Promise<User> {
     const createdCat = new this.userModel(createUserDto);
+
     return await createdCat.save();
   }
 
   async findAll(query?: object): Promise<User[]> {
-     return await this.userModel.find(query).exec();
+    return await this.userModel.find(query).exec();
   }
 
   async findOne(id: string): Promise<User> {

@@ -25,6 +25,7 @@
     "@nestjs/core": "^6.7.2",
     "@nestjs/mongoose": "^6.1.2",
     "@nestjs/platform-express": "^6.7.2",
+    "@types/joi": "^14.3.4",
     "dotenv": "^8.2.0",
     "mongo-connection-string": "^0.1.4",
     "mongoose": "^5.7.12",
