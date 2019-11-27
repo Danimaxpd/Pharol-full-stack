@@ -1,10 +1,11 @@
+
 import * as dotenv from 'dotenv';
 import { Module } from '@nestjs/common';
+import { MongooseModule } from '@nestjs/mongoose';
 
 import { AppService } from './services/app.service';
 import { AppController } from './controllers/app.controller';
 import { UserModule } from './modules/user.module';
-import { TypeOrmModule } from '@nestjs/typeorm';
 
 dotenv.config();
 
@@ -14,23 +15,9 @@ const mdUser = process.env.MONGO_USER;
 const mdPass = process.env.MONGO_PASSWORD;
 const mdHost = process.env.MONGO_HOST;
 
+
 @Module({
-  imports: [TypeOrmModule.forRoot({
-    type: 'mongodb',
-    host: mdHost,
-    port: mdPort,
-    username: mdUser,
-    password: mdPass,
-    database: mdDB,
-    logging: true,
-    synchronize: true,
-    migrationsRun: true,
-    entities: ['src/entities/**/*.ts'],
-    migrations: ['src/migrations/**/*.ts'],
-    cli: {
-      migrationsDir: 'src/migrations/**/*.ts',
-    },
-  }), UserModule],
+  imports: [MongooseModule.forRoot(`mongodb://${mdUser}:${mdPass}@${mdHost}:${mdPort}/${mdDB}`), UserModule],
   controllers: [AppController],
   providers: [AppService],
 })
